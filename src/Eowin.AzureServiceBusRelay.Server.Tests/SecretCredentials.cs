@@ -9,7 +9,7 @@ namespace Eowin.AzureServiceBusRelay.Server.Tests
             get
             {
                 var addr = Environment.GetEnvironmentVariable("ServiceBusAddress");
-                if(string.IsNullOrWhiteSpace(addr)) throw new InvalidOperationException("ServiceBusAddress is not defined");
+                if (string.IsNullOrWhiteSpace(addr)) throw new InvalidOperationException("ServiceBusAddress is not defined");
                 return addr;
             }
         }
@@ -23,5 +23,17 @@ namespace Eowin.AzureServiceBusRelay.Server.Tests
                 return secret;
             }
         }
+
+        public static string PolicyName
+        {
+            get
+            {
+                var secret = Environment.GetEnvironmentVariable("ServiceBusPolicyName");
+                if (string.IsNullOrWhiteSpace(secret)) throw new InvalidOperationException("ServiceBusPolicyName is not defined");
+                return secret;
+
+            }
+        }
+
     }
 }

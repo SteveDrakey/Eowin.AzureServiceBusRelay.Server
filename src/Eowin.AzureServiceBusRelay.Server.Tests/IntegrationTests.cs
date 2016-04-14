@@ -262,7 +262,7 @@ namespace Eowin.AzureServiceBusRelay.Server.Tests
         public IntegrationTests()
         {
             var sbConfig = new AzureServiceBusOwinServiceConfiguration(
-                issuerName: "owner",
+                issuerName: SecretCredentials.PolicyName,
                 issuerSecret: SecretCredentials.Secret,
                 address: SecretCredentials.ServiceBusAddress);
             _server = AzureServiceBusOwinServer.Create(sbConfig, app =>

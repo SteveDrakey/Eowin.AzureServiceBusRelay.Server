@@ -19,7 +19,7 @@ namespace Eowin.AzureServiceBusRelay.Server
         public IDisposable Create(Func<IDictionary<string, object>, Task> app, IDictionary<string, object> properties)
         {
             var host = new WebServiceHost(new DispatcherService(app));
-            var ep = host.AddServiceEndpoint(typeof(DispatcherService), GetBinding(), _config.Address);
+            var ep = host.AddServiceEndpoint(typeof(DispatcherService), GetBinding(),  _config.Address);
             ep.Behaviors.Add(_config.GetTransportBehavior());
             host.Open();
             return host;
